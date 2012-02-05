@@ -1,0 +1,111 @@
+body {
+    font-family: Palatino, Georgia, serif;
+    color: #333;
+    background-color: #fcfcfc;
+    padding: 0;
+    margin: 0;
+}
+
+section h1,
+section h2,
+section h3,
+section h4,
+section h5 {
+    font-family: Optima;
+}
+section h1, article h1 {
+    font-size: 250%;
+    line-height: 1;
+}
+h2 {
+    font-size: 180%;
+}
+h3 {
+    font-size: 130%;
+}
+
+header {
+    background-color: #aaa;
+    color: #444;
+    padding: 1px;
+    margin-bottom: 80px;
+}
+
+header div {
+    float: left;
+}
+
+header div a {
+    color: #666;
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+header div, header h1 {
+    font-size: 100%;
+    padding: 15px;
+    margin: 0;
+    line-height: 1;
+}
+
+footer {
+    font-size: 90%;
+    text-align: center;
+    background-color: #ccc;
+    color: #666;
+    padding: 1px;
+    margin-top: 80px;
+}
+footer p {
+    margin: 15px;
+}
+
+footer a {
+    color: #444;
+}
+
+section#content {
+    width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: #048;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #246;
+}
+
+code {
+    font-family: Menlo, "Bitstream Vera Sans Mono", "Luxi Mono", Monaco, monospace;
+    font-size: 90%;
+    color: #960;
+}
+
+span.date {
+    color: #999;
+    font-size: 80%;
+    vertical-align: baseline;
+    width: 130px;
+    text-align: right;
+    display: inline-block;
+    padding-right: 10px;
+}
+
+ul.posts {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+ul.posts li {
+    padding: 0;
+    margin: 0;
+}
