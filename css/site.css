@@ -75,7 +75,7 @@ section#content {
 
 a {
     text-decoration: none;
-    color: #048;
+    color: #06a;
 }
 
 a:hover, a:active {
@@ -83,7 +83,7 @@ a:hover, a:active {
 }
 
 a:visited {
-    color: #246;
+    color: #258;
 }
 
 a[rev=footnote] {
