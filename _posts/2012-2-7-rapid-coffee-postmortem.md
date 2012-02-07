@@ -255,3 +255,7 @@ going to be more complicated than it seemed up front.
 
 After all of that, though, the final product is a site that works as
 required, and that's got to be considered a success.
+
+_Join in the discussion at [Hacker News][hn]_
+
+[hn]: http://news.ycombinator.com/item?id=3560616
