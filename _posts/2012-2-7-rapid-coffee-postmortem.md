@@ -178,9 +178,10 @@ Javascript (short a `class` syntax which I barely used.) Presumably it
 plays perfectly well with JS dependency-management systems and the
 like; I never tried.[^struct]
 
-[^struct]: The CoffeeScript is broken up into around 25 .coffee files,
-each containing a top-level namespace with all that module's exports,
-as per normal practice. That's about as much structure as there is.
+[^struct]: The CoffeeScript is broken up into around 25 `.coffee`
+files, each containing a top-level namespace with all that module's
+exports, as per normal practice. That's about as much structure as
+there is.
 
 In hindsight, I would have been better served learning a suitable
 framework/library for this project than a new language. CoffeeScript
