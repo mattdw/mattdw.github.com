@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Phrase Evolution</title>
+	<script type="text/javascript" src="lib/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="lib/json2.js"></script>
+	<script type="text/javascript" src="lib/underscore-min.js"></script>
+	<script type="text/javascript" src="lib/backbone-min.js"></script>
+	<script type="text/javascript" src="site.js"></script>
+        <link rel="stylesheet" href="site.css">
+</head>
+<body>
+		
+<form id="word-form">
+  <p>
+    <label for="phrase">Target phrase (ASCII only)</label>
+    <input type="text" name="phrase" id="phrase" value="Hello, World!">
+  </p>
+  <p>
+    <label for="per_gen">Population size (per generation)</label>
+    <input type="number" id="per_gen" name="per_gen" value="20" min="5" max="500" step="5">
+  </p>
+  <p>
+    <label for="start_length">Starting word length</label>
+    <input type="number" id="start_length" name="start_length" value="10" min="0" max="50" step="1">
+  </p>
+  <p>
+    <label for="max_age">Maximum age</label>
+    <input type="number" id="max_age" name="max_age" value="10" min="1" max="50" step="1">
+  </p>
+  <p>
+    <label for="delay">Delay between generations (0 is fastest)</label>
+    <input type="number" id="delay" name="delay" value="25" min="0" max="2000" step="25">
+  </p>
+  <p>
+    <input type="submit"> <input type="submit" id="pause" value="Pause">
+  </p>
+</form>
+
+<div id="results_container">
+  <p><pre id="results_meta"></pre></p>
+  <pre id="results">
+</div>
+
+</pre>
+
+</body>
+</html>
