@@ -26,6 +26,11 @@ h3 {
     font-size: 130%;
 }
 
+body.home h2 {
+    font-size: 100%;
+    margin-top: 40px;
+}
+
 header, footer {
     color: #666;
     background-color: #e9e5e2;

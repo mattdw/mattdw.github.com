@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+class: home
 ---
 
 My name is Matthew Wilson and I'm a web developer. I do most of my
