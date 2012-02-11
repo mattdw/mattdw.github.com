@@ -149,7 +149,7 @@ $(function () {
   Word.prototype.fitness = function (env) {
     if (this._fitness) return this._fitness;
     var score = 0;
-    score += Math.abs((this.genes.length - env.word.length) * 5);
+    score += Math.abs((this.genes.length - env.word.length) * 2);
     var pairDiffs = _.map(_.zip(this.genes, env.word),
                           function (pair) {return Math.abs(
                             ((pair[0] || "").charCodeAt(0) || 0) - 
