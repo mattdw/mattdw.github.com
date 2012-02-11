@@ -98,7 +98,7 @@ $(function () {
 
   Population.prototype.cull = function (keep) {
     if (!keep) {
-      keep = Math.floor(this.size / 2);
+      keep = Math.floor(this.size / 3);
     }
     
     if (typeof this.options.maxAge != "undefined" && this.options.maxAge) {
