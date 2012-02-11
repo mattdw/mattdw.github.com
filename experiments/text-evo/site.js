@@ -36,6 +36,7 @@ $(function () {
     },
     // change a gene at random index
     function (genes) {
+      if (genes.length === 0) return genes;
       var i = Math.floor(Math.random() * genes.length);
       genes.splice(i, 1, this.mutateGene(genes[i]));
       return genes;
@@ -148,7 +149,7 @@ $(function () {
   Word.prototype.fitness = function (env) {
     if (this._fitness) return this._fitness;
     var score = 0;
-    score += Math.abs((this.genes.length - env.word.length) * 10);
+    score += Math.abs((this.genes.length - env.word.length) * 5);
     var pairDiffs = _.map(_.zip(this.genes, env.word),
                           function (pair) {return Math.abs(
                             ((pair[0] || "").charCodeAt(0) || 0) - 
@@ -218,7 +219,7 @@ $(function () {
     $("#results").html(_.map(jobController.population.members,
                              function (m) {
                                return m.fitness(jobController.population.env) + 
-                                 " / " + m.render();
+                                 "\t" + m.render();
                              }).join("\n"));
     $("#results_meta").text("Gen: " + jobController.population.generation);
   });
