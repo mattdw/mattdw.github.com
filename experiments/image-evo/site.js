@@ -35,7 +35,7 @@ $(function () {
         // no point checking alpha channel
         if (((i + 1) % 4) === 0) {
           // match same cycle
-          i += 3;
+          continue;
         }
         difference += Math.abs(this._image.data[i] - env.image.data[i]);
       }
