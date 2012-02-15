@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Image Evolution</title>
+	<script type="text/javascript" src="lib/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="lib/underscore-min.js"></script>
+
+	<script type="text/javascript" src="genetic.js"></script>
+	<script type="text/javascript" src="site.js"></script>
+        <link rel="stylesheet" href="site.css">
+</head>
+<body>
+		
+<form id="image-form">
+  <p>
+    <label for="image">URL to Image (http://)</label>
+    <input type="text" name="image" id="image" value="./harbour.jpg">
+  </p>
+  <p>
+    <label for="per_gen">Population size (per generation)</label>
+    <input type="number" id="per_gen" name="per_gen" value="20" min="5" max="500" step="5">
+  </p>
+  <p>
+    <label for="max_age">Maximum age</label>
+    <input type="number" id="max_age" name="max_age" value="15" min="0" max="50" step="1">
+  </p>
+  <p>
+    <label for="num_polygons">Starting number of polygons</label>
+    <input type="number" id="num_polygons" name="num_polygons" value="20" min="1" max="500" step="1">
+  </p>
+  <p>
+    <label for="num_vertices">Vertices per polygon</label>
+    <input type="number" id="num_vertices" name="num_vertices" value="6" min="3" max="50" step="1">
+  </p>
+  <p>
+    <label for="delay">Delay between generations (0 is fastest)</label>
+    <input type="number" id="delay" name="delay" value="25" min="0" max="2000" step="25">
+  </p>
+  <p>
+    <input type="submit"> <input type="submit" id="pause" value="Pause">
+  </p>
+</form>
+
+<div id="results_container">
+  <p><pre id="results_meta"></pre></p>
+  <canvas height="300" width="300" id="input-image"></canvas>
+  <canvas height="300" width="300" id="output-image"></canvas>
+</div>
+
+</pre>
+
+</body>
+</html>
