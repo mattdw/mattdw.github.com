@@ -28,4 +28,5 @@ label {
 
 canvas {
     display: inline-block;
+    margin-right: 10px;
 }

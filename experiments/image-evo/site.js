@@ -1,7 +1,9 @@
 "use strict";
 $(function () {
   
-  function Polygons (ps, vs) {
+  function Polygons (dims, ps, vs) {
+    this.width = dims[0];
+    this.height = dims[1];
     var num_color_genes = 4;
     // genes = vertices-per-polygon, [r, g, b, a, x1, y1, x2, y2,
     // ...]+
@@ -10,8 +12,8 @@ $(function () {
     this.genes = _.map(_.range(num_genes), _.bind(this.newGene, this));
     this.genes[0] = 1 / vs;
     this.canvas = document.createElement("canvas");
-    this.canvas.height = 300;
-    this.canvas.width = 300;
+    this.canvas.height = this.height;
+    this.canvas.width = this.width;
   }
   Polygons.prototype = new genetic.Creature(0);
   
@@ -30,6 +32,11 @@ $(function () {
       
       var difference = 0;
       for (var i = 0, l = this._image.data.length; i < l; i+=3) {
+        // no point checking alpha channel
+        if (((i + 1) % 4) === 0) {
+          // match same cycle
+          i += 3;
+        }
         difference += Math.abs(this._image.data[i] - env.image.data[i]);
       }
       this._fitness = difference;
@@ -38,7 +45,7 @@ $(function () {
     drawImage: function () {
       var ctx = this.canvas.getContext("2d");
       ctx.fillStyle = "#fff";
-      ctx.fillRect(0, 0, 300, 300);
+      ctx.fillRect(0, 0, this.width, this.height);
       var coords = Math.floor(1 / this.genes[0]) * 2;
       for (var i = 1, l = this.genes.length; i < l; i += coords + 4) {
         var colors = this.genes.slice(i, i + 4);
@@ -55,16 +62,16 @@ $(function () {
           var x = xs_ys[j], y = xs_ys[j + 1];
           if (!(x && y)) continue;
           if (first) {
-            ctx.moveTo(x * 300, y * 300);
+            ctx.moveTo(x * this.width, y * this.height);
             first = false;
           } else {
-            ctx.lineTo(x * 300, y * 300);
+            ctx.lineTo(x * this.width, y * this.height);
           }
         }
         ctx.closePath();
         ctx.fill();
       }
-      this._image = ctx.getImageData(0, 0, 300, 300);
+      this._image = ctx.getImageData(0, 0, this.width, this.height);
       return this;
     },
     render: function (env) {
@@ -104,7 +111,7 @@ $(function () {
   }).on("render", function (e) {
     // draw here
     var best = jobController.population.members[0];
-    jobController.population.env.canvas.getContext("2d").clearRect(0,0,300,300);
+    //jobController.population.env.canvas.getContext("2d").clearRect(0,0,this.width,this.height);
     best.render(jobController.population.env);
     $("#results_meta").text("Gen: " + jobController.population.generation + 
                             " Fitness: " + best._fitness);
@@ -118,12 +125,15 @@ $(function () {
     var imageEl = new Image;
     imageEl.src = imageURL;
     imageEl.onload = function () {
+      var aspectRatio = imageEl.height / imageEl.width;
+      var width = + $("#width").val();
+      var height = width * aspectRatio;
       var canvas, ctx, imageData;
       canvas = $("#input-image");
-      canvas.attr({height: 300, width: 300});
+      canvas.add("#output-image").attr({height: height, width: width});
       ctx = canvas.get(0).getContext("2d");
-      ctx.drawImage(imageEl, 0, 0, 300, 300);
-      imageData = ctx.getImageData(0, 0, 300, 300);
+      ctx.drawImage(imageEl, 0, 0, width, height);
+      imageData = ctx.getImageData(0, 0, width, height);
       
       var env = {image: imageData, canvas: $("#output-image").get(0)},
           per_gen = + $("#per_gen").val(),
@@ -133,7 +143,7 @@ $(function () {
           delay = + $("#delay").val();
       
       var creatureCtor = function () {
-        return new Polygons(numPolys, numVerts);
+        return new Polygons([width, height], numPolys, numVerts);
       }; 
       
       var pop = new genetic.Population(env, creatureCtor, per_gen, {maxAge: maxAge});
