@@ -47,31 +47,39 @@ $(function () {
       return this._fitness;
     },
     drawImage: function () {
+      var floor = Math.floor;
+      var genes = this.genes;
+      var coords = floor(1 / this.genes[0]) * 2;
+
       var ctx = this.canvas.getContext("2d");
       ctx.fillStyle = "#fff";
       ctx.fillRect(0, 0, this.width, this.height);
-      var coords = Math.floor(1 / this.genes[0]) * 2;
-      for (var i = 1, l = this.genes.length; i < l; i += coords + 4) {
-        var colors = this.genes.slice(i, i + 4);
-        var xs_ys = this.genes.slice(i + 4, i + coords);
+
+      for (var i = 1, l = genes.length; i < l; i += coords + 4) {
+        var colors = genes.slice(i, i + 4);
+        var xs_ys = genes.slice(i + 4, i + coords);
+
         ctx.beginPath();
-        var first = true;
+        var firstVert = true;
+
         ctx.strokeStyle = "#000";
-        var fillColor = "rgba(" + Math.floor(256 * colors[0]) + "," + 
-          Math.floor(256 * colors[1]) + "," + 
-          Math.floor(256 * colors[2]) + "," + 
+        var fillColor = "rgba(" + floor(256 * colors[0]) + "," + 
+          floor(256 * colors[1]) + "," + 
+          floor(256 * colors[2]) + "," + 
           ((colors[3] / 2) + 0.25) + ")";
         ctx.fillStyle = fillColor;
+        
         for (var j = 0, k = xs_ys.length; j < k; j += 2) {
           var x = xs_ys[j], y = xs_ys[j + 1];
           if (!(x && y)) continue;
-          if (first) {
+          if (firstVert) {
             ctx.moveTo(x * this.width, y * this.height);
-            first = false;
+            firstVert = false;
           } else {
             ctx.lineTo(x * this.width, y * this.height);
           }
         }
+
         ctx.closePath();
         ctx.fill();
       }
