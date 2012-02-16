@@ -31,14 +31,18 @@ $(function () {
       if (!this._image) this.drawImage();
       
       var difference = 0;
-      for (var i = 0, l = this._image.data.length; i < l; i+=3) {
-        // no point checking alpha channel
-        if (((i + 1) % 4) === 0) {
-          // match same cycle
-          continue;
-        }
-        difference += Math.abs(this._image.data[i] - env.image.data[i]);
+      var A = this._image.data;
+      var B = env.image.data;
+      var abs = Math.abs;
+      
+      for (var r = 0, l = A.length - 10; r < l; r += 12) {
+        var g = r + 5;
+        var b = r + 10;
+        difference += abs(A[r] - B[r]) +
+          abs(A[g] - B[g]) +
+          abs(A[b] - B[b]);
       }
+      
       this._fitness = difference;
       return this._fitness;
     },
