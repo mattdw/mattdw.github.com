@@ -14,8 +14,19 @@
 		
 <form id="image-form">
   <p>
-    <label for="image">URL to Image (http://)</label>
-    <input type="text" name="image" id="image" value="./harbour.jpg">
+    <label for="image">Image</label>
+    <span class="image_opt">
+      <input type="radio" name="image" id="image_1" value="./harbour.jpg" checked>
+      <label for="image_1"><img src="./harbour.jpg" width=70></label>
+    </span>
+    <span class="image_opt">
+      <input type="radio" name="image" id="image_2" value="./owl.jpg">
+      <label for="image_2"><img src="./owl.jpg" width=60></label>
+    </span>
+    <span class="image_opt">
+      <input type="radio" name="image" id="image_3" value="./cottage.jpg">
+      <label for="image_3"><img src="./cottage.jpg" width=70></label>
+    </span>
   </p>
   <p>
     <label for="per_gen">Population size (per generation)</label>

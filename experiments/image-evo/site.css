@@ -12,12 +12,22 @@ label {
     padding: 0 0 5px 0;
 }
 
+.image_opt {
+    float: left;
+    text-align: center;
+    padding: 10px;
+}
+
 #image-form {
     float: left;
     width: 280px;
     background-color: #ccc;
     padding: 20px;
 } 
+
+#image-form p {
+    clear: left;
+}
 
 #results_container {
     margin-left: 340px;

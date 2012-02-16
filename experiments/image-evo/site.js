@@ -105,27 +105,33 @@ $(function () {
   
   $(jobController).on("stop", function (e) {
     jobController.running = false;
+    
   }).on("start", function (e, population, delay) {
     jobController.population = population;
     jobController.delay = delay;
     jobController.trigger("run");
+    
   }).on("run", function (e) {
     jobController.running = true;
     setTimeout(function () {iteratePopulation(jobController);}, jobController.delay);
+    
   }).on("render", function (e) {
     // draw here
     var best = jobController.population.members[0];
     //jobController.population.env.canvas.getContext("2d").clearRect(0,0,this.width,this.height);
     best.render(jobController.population.env);
+    var canvas = jobController.population.env.canvas;
+    var avgError = best._fitness / (canvas.height * canvas.width);
     $("#results_meta").text("Gen: " + jobController.population.generation + 
-                            " Fitness: " + best._fitness);
+                            " Fitness: " + best._fitness +
+                            " (Per-pixel avg err: " + Math.round(avgError) + ")");
   });
   
   $("#image-form").on("submit", function (e) {
     e.preventDefault();
     jobController.trigger("stop");
     
-    var imageURL = $("#image").val();
+    var imageURL = $("input[type=radio][name=image]:checked").val();
     var imageEl = new Image;
     imageEl.src = imageURL;
     imageEl.onload = function () {
