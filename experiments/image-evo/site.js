@@ -63,9 +63,9 @@ $(function () {
         var firstVert = true;
 
         ctx.strokeStyle = "#000";
-        var fillColor = "rgba(" + floor(256 * colors[0]) + "," + 
-          floor(256 * colors[1]) + "," + 
-          floor(256 * colors[2]) + "," + 
+        var fillColor = "hsla(" + floor(360 * colors[0]) + "," + 
+          (100 * colors[1]) + "%," + 
+          (100 * colors[2]) + "%," + 
           ((colors[3] / 2) + 0.25) + ")";
         ctx.fillStyle = fillColor;
         
