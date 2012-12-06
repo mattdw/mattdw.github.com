@@ -134,9 +134,9 @@ in a unix server environment, where there is quite likely no GUI
 available at all. Unfortunately, apparently in .NET/F# world the IDE
 *is* the toolchain.
 
-There may be something I'm missing; I've seen vague passing mention of
-NuGet, although I'm yet to try it to see if that would solve my
-problems.
+(There may well be something I'm missing. NuGet sounded like the right
+sort of thing, right up to the point I discovered that it was a Visual
+Studio extension.)
 
 Which leads me to my final complaint; that of the surprising lack of
 good documentation, tutorials, and descriptions of best practices for
