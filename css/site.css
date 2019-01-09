@@ -17,8 +17,13 @@ section h5 {
 section h1, article h1 {
     font-size: 280%;
     line-height: 1;
+    margin-bottom: 0;
+}
+
+section header, article header {
     margin-bottom: 80px;
 }
+
 h2 {
     font-size: 180%;
 }
@@ -31,28 +36,28 @@ body.home h2 {
     margin-top: 40px;
 }
 
-header, footer {
+body>header, footer {
     color: #666;
     background-color: #e9e5e2;
     padding: 1px;
 }
 
-header {
+body>header {
     margin-bottom: 120px;
 }
 
-header div {
+body>header div {
     float: left;
 }
 
-header div a,
-header div a:visited {
+body>header div a,
+body>header div a:visited {
     color: #444;
     text-decoration: none;
     padding-right: 20px;
 }
 
-header div, header h1 {
+body>header div, body>header h1 {
     font-size: 100%;
     padding: 15px;
     margin: 0;
@@ -126,9 +131,14 @@ article span.date {
 }
 
 .pubDate {
-    text-align: right;
+    text-align: left;
     font-size: 80%;
     text-transform: uppercase;
+}
+
+.next-link {
+    margin: 60px 0;
+    text-align: center;
 }
 
 ul.posts {
@@ -155,4 +165,19 @@ hr {
 
 sup {
     line-height: 0.8;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+figure {
+    margin: 1em -1em;
+    padding: 0.5em 1em;
+}
+
+figure code {
+    font-size: 75%;
 }

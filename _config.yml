@@ -1,2 +1,2 @@
 permalink: /:year/:title.html
-pygments: true
+highlighter: rouge
