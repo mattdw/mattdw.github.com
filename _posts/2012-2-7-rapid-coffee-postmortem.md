@@ -4,8 +4,6 @@ layout: post
 published: true
 ---
 
-# {{page.title}}
-
 I'm the primary developer on the HTML/front-end components (but not
 the Flash) of the [Camry Effect](http://toyota.com/camryeffect/)
 website. It's both the largest amount of client-side code I've written
@@ -131,7 +129,7 @@ to match output styles.
 >     +
 >     +  if ((_ref = this.actions) == null) this.actions = {};
 >     +
-> 
+>
 > *Our repo is full of this kind of thing. Makes code reviews annoying.*
 
 This latest point is perhaps less a complaint about CoffeeScript, and
@@ -260,4 +258,3 @@ _Discussion at [Hacker News][hn] and [the Javascript Reddit][redd]._
 
 [hn]: http://news.ycombinator.com/item?id=3560616
 [redd]: http://www.reddit.com/r/javascript/comments/pegf1/coffeescript_under_pressure/
-
